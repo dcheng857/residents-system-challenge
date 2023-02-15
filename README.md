@@ -1,6 +1,6 @@
 # A Simple Residents System
 
-This project was to demonstrate a simple residents system than able to allow resident to enroll the programs.
+This project was to demonstrate a simple residents system that able to allow resident to enroll the programs.
 
 ---
 
