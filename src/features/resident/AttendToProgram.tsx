@@ -12,6 +12,7 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { Modal } from "../../components/Modal";
 import { RenderDropDownInput } from "../../components/renderInput";
+import { Skeleton } from "../../components/Skeleton";
 import {
   closeAttendProgram,
   selectAttendToOpen,
@@ -113,6 +114,8 @@ export function AttendToProgram() {
                 </div>
               </Card>
 
+              {isProgramsLoading && <Skeleton />}
+
               {isProgramsError && (
                 <Alert type="error">
                   Error to fetch the program list, please close the pop-up and
@@ -127,15 +130,39 @@ export function AttendToProgram() {
                     label="Attend Program"
                     items={
                       programs
-                        ? programs.map((program) => {
-                            return { label: program.name, value: program.id };
-                          })
+                        ? programs
+                            .filter((program) => {
+                              let result = true;
+                              program.attendance.forEach((attend) => {
+                                if (attend.residentId === resident?.id) {
+                                  result = false;
+                                }
+                              });
+                              return result;
+                            })
+                            .map((program) => {
+                              return {
+                                label: program.name,
+                                value: program.id,
+                                levelOfCare: program.levelOfCare,
+                              };
+                            })
                         : []
                     }
                     validation={{
                       required: "This field is required.",
                     }}
                     control={control}
+                    formatOptionLabel={({ value, label, levelOfCare }) => {
+                      return (
+                        <div>
+                          <div>{label}</div>
+                          <div className="text-xs text-slate-500 mt-1">
+                            Level Of Care: {levelOfCare?.join(", ")}
+                          </div>
+                        </div>
+                      );
+                    }}
                   />
                 </div>
               )}
@@ -158,6 +185,7 @@ export function AttendToProgram() {
               isDisabled={
                 isProgramsLoading || isProgramsError || isAttendLoading
               }
+              isLoading={isAttendLoading}
             >
               Assign
             </Button>

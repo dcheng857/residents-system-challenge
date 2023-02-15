@@ -1,10 +1,16 @@
+import { ReactNode } from "react";
 import { Controller } from "react-hook-form";
-import Select, { ActionMeta, MultiValue, SingleValue } from "react-select";
+import Select, {
+  ActionMeta,
+  FormatOptionLabelMeta,
+  MultiValue,
+  SingleValue,
+} from "react-select";
 import { TagsInput } from "react-tag-input-component";
-
 interface OptionType {
   value: string;
   label: string;
+  levelOfCare?: string[];
 }
 
 export const RenderInput = ({
@@ -61,6 +67,7 @@ export const RenderMultiDropDownInput = ({
   items,
   helpText = null,
   control,
+  formatOptionLabel,
 }: {
   name: string;
   label: string;
@@ -68,6 +75,10 @@ export const RenderMultiDropDownInput = ({
   items: Array<{ label: string; value: any }>;
   helpText?: string | null;
   control: any;
+  formatOptionLabel?: (
+    data: OptionType,
+    formatOptionLabelMeta: FormatOptionLabelMeta<OptionType>
+  ) => ReactNode;
 }) => (
   <Controller
     render={({
@@ -94,6 +105,7 @@ export const RenderMultiDropDownInput = ({
             isMulti
             styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             menuPortalTarget={document.body}
+            formatOptionLabel={formatOptionLabel}
             {...rest}
           />
         </div>
@@ -121,6 +133,7 @@ export const RenderDropDownInput = ({
   items,
   helpText = null,
   control,
+  formatOptionLabel,
 }: {
   name: string;
   label: string;
@@ -128,6 +141,10 @@ export const RenderDropDownInput = ({
   items: Array<{ label: string; value: any }>;
   helpText?: string | null;
   control: any;
+  formatOptionLabel?: (
+    data: OptionType,
+    formatOptionLabelMeta: FormatOptionLabelMeta<OptionType>
+  ) => ReactNode;
 }) => (
   <Controller
     render={({
@@ -153,6 +170,7 @@ export const RenderDropDownInput = ({
             ) => onChange(selected?.value)}
             styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             menuPortalTarget={document.body}
+            formatOptionLabel={formatOptionLabel}
             {...rest}
           />
         </div>

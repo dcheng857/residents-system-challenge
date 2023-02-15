@@ -126,7 +126,6 @@ export function Residents() {
         renderRowActions={({ row }) => (
           <button
             onClick={() => {
-              console.info(row.original);
               dispatch(setSelectedResident(row.original));
               dispatch(openAttendProgram());
             }}

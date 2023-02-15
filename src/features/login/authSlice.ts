@@ -18,7 +18,7 @@ export interface IUser {
   lastSubmission: string;
 }
 
-interface IUserState {
+export interface IUserState {
   user: null | IUser;
   isAuthenticated: boolean;
 }
@@ -35,7 +35,6 @@ const slice = createSlice({
     setCredentials: (state, action: PayloadAction<IUser>) => {
       state.user = action.payload;
       state.isAuthenticated = true;
-      //   state.token = token;
     },
     logout: () => initialState,
   },

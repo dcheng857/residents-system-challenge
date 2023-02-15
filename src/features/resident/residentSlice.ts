@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IResident } from "../../app/services/residents";
 import type { RootState } from "../../app/store";
 
-interface IResidentState {
+export interface IResidentState {
   attendToOpen: boolean;
   resident: IResident | null;
 }

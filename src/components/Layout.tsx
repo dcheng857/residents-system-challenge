@@ -27,7 +27,7 @@ export function Layout() {
         <div className="text-gray-100 text-xl">
           <div className="p-2.5 mt-1 flex items-center">
             <h1 className="font-bold text-gray-200 text-[15px] ml-3">
-              ABC Company
+              Sample Company
             </h1>
           </div>
           <div className="my-2 bg-gray-600 h-[1px]"></div>

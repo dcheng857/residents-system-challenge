@@ -164,7 +164,12 @@ export function AddResident() {
             Back
           </Button>
 
-          <Button type="submit" variant="primary" isLoading={isCreating}>
+          <Button
+            type="submit"
+            variant="primary"
+            isDisabled={isCreating}
+            isLoading={isCreating}
+          >
             Submit
           </Button>
         </div>
