@@ -10,8 +10,32 @@ This project was to demonstrate a simple residents system than able to allow res
 yarn install # or npm install
 ```
 
+Install all Node Package Modules that depending this project.
+
 ```bash
 yarn start # or npm start
 ```
 
-after that auto launch todo app on your default browser and code edit ready.
+after that auto launch todo app on your default browser and you can modify the code under `src/`.
+
+```bash
+yarn test # or npm test
+```
+
+Run [Jest](https://jestjs.io/).
+
+---
+
+## Stack
+
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [tailwindcss](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Netlify](https://www.netlify.com/): Deploy & Hosting
+- [React Router](https://reactrouter.com/)
+- [React-toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [React Select](https://react-select.com/home)
+- [Material React Table](https://www.material-react-table.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [redux-persist](https://github.com/rt2zz/redux-persist)
+- [react-tag-input-component](https://github.com/hc-oss/react-tag-input-component)
