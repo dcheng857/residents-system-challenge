@@ -28,8 +28,6 @@ export function AddResident() {
   });
 
   const onSubmit = async (resident: IAddResidentRequest) => {
-    console.log(resident);
-
     try {
       const result = await addResident(resident).unwrap();
       if (result) {
@@ -155,7 +153,7 @@ export function AddResident() {
           validation={{
             required: "This field is required.",
           }}
-          type="date"
+          type="datetime-local"
           control={control}
         />
 

@@ -40,14 +40,12 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      //   .addMatcher(postsApi.endpoints.login.matchPending, (state, action) => {
-      //     console.log('pending', action)
-      //   })
-      //   .addMatcher(postsApi.endpoints.login.matchFulfilled, (state, action) => {
-      //     console.log('fulfilled', action)
-      //     state.user = action.payload.user
-      //     state.token = action.payload.token
-      //   })
+      .addMatcher(loginApi.endpoints.login.matchPending, (state, action) => {
+        console.log("pending", action);
+      })
+      .addMatcher(loginApi.endpoints.login.matchFulfilled, (state, action) => {
+        console.log("fulfilled", action);
+      })
       .addMatcher(loginApi.endpoints.login.matchRejected, (state, action) => {
         console.log("rejected", action);
       });

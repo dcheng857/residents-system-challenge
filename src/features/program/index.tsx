@@ -62,13 +62,15 @@ export function Programs() {
         accessorKey: "start",
         header: "Start",
         enableColumnFilter: false,
-        accessorFn: (row) => moment(row.start).format("yyyy-MM-DD HH:mm:ss A"),
+        accessorFn: (row) =>
+          moment.utc(row.start).format("yyyy-MM-DD HH:mm:ss A"),
       },
       {
         accessorKey: "end",
         header: "End",
         enableColumnFilter: false,
-        accessorFn: (row) => moment(row.end).format("yyyy-MM-DD HH:mm:ss A"),
+        accessorFn: (row) =>
+          moment.utc(row.end).format("yyyy-MM-DD HH:mm:ss A"),
       },
       {
         accessorKey: "tags",
@@ -108,14 +110,14 @@ export function Programs() {
         header: "Created At",
         enableColumnFilter: false,
         accessorFn: (row) =>
-          moment(row.createdAt).format("yyyy-MM-DD HH:mm:ss A"),
+          moment.utc(row.createdAt).format("yyyy-MM-DD HH:mm:ss A"),
       },
       {
         accessorKey: "updatedAt",
         header: "Updated At",
         enableColumnFilter: false,
         accessorFn: (row) =>
-          moment(row.updatedAt).format("yyyy-MM-DD HH:mm:ss A"),
+          moment.utc(row.updatedAt).format("yyyy-MM-DD HH:mm:ss A"),
       },
     ],
     []

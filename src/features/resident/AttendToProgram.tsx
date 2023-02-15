@@ -45,7 +45,6 @@ export function AttendToProgram() {
   const onSubmit = async (attendance: Partial<IAttendance>) => {
     try {
       attendance.residentId = resident?.id;
-      console.log(attendance);
       const result = await attendProgram(attendance).unwrap();
       if (result) {
         dispatch(closeAttendProgram());
@@ -145,6 +144,8 @@ export function AttendToProgram() {
                                 label: program.name,
                                 value: program.id,
                                 levelOfCare: program.levelOfCare,
+                                start: program.start,
+                                end: program.end,
                               };
                             })
                         : []
@@ -153,12 +154,22 @@ export function AttendToProgram() {
                       required: "This field is required.",
                     }}
                     control={control}
-                    formatOptionLabel={({ value, label, levelOfCare }) => {
+                    formatOptionLabel={({
+                      value,
+                      label,
+                      levelOfCare,
+                      start,
+                      end,
+                    }) => {
                       return (
                         <div>
                           <div>{label}</div>
                           <div className="text-xs text-slate-500 mt-1">
                             Level Of Care: {levelOfCare?.join(", ")}
+                          </div>
+                          <div className="text-xs text-slate-500 mt-1">
+                            {moment.utc(start).format("yyyy-MM-DD HH:mm:ss A")}{" "}
+                            - {moment.utc(end).format("yyyy-MM-DD HH:mm:ss A")}
                           </div>
                         </div>
                       );

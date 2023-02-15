@@ -7,10 +7,13 @@ import Select, {
   SingleValue,
 } from "react-select";
 import { TagsInput } from "react-tag-input-component";
+
 interface OptionType {
   value: string;
   label: string;
   levelOfCare?: string[];
+  start?: string;
+  end?: string;
 }
 
 export const RenderInput = ({

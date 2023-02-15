@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import type { MRT_ColumnDef } from "material-react-table";
 import MaterialReactTable from "material-react-table";
-import moment from "moment";
+import moment from "moment-timezone";
 import { useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -82,21 +82,21 @@ export function Residents() {
         header: "Move In Date",
         enableColumnFilter: false,
         accessorFn: (row) =>
-          moment(row.moveInDate).format("yyyy-MM-DD HH:mm:ss A"),
+          moment.utc(row.moveInDate).format("yyyy-MM-DD HH:mm:ss A"),
       },
       {
         accessorKey: "createdAt",
         header: "Created At",
         enableColumnFilter: false,
         accessorFn: (row) =>
-          moment(row.createdAt).format("yyyy-MM-DD HH:mm:ss A"),
+          moment.utc(row.createdAt).format("yyyy-MM-DD HH:mm:ss A"),
       },
       {
         accessorKey: "updatedAt",
         header: "Updated At",
         enableColumnFilter: false,
         accessorFn: (row) =>
-          moment(row.updatedAt).format("yyyy-MM-DD HH:mm:ss A"),
+          moment.utc(row.updatedAt).format("yyyy-MM-DD HH:mm:ss A"),
       },
     ],
     []

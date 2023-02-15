@@ -34,17 +34,14 @@ export function AddProgram() {
   });
 
   const onSubmit = async (program: Partial<IProgram>) => {
-    console.log(program);
-
     try {
       const result = await addProgram(program).unwrap();
       if (result) {
-        console.log(result);
         toast.success("Program Successfully Added!");
         navigate("/programs");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("Fail to add! Please try again later.");
     }
   };
@@ -92,7 +89,7 @@ export function AddProgram() {
           validation={{
             required: "This field is required.",
           }}
-          type="date"
+          type="datetime-local"
           control={control}
         />
 
@@ -102,7 +99,7 @@ export function AddProgram() {
           validation={{
             required: "This field is required.",
           }}
-          type="date"
+          type="datetime-local"
           control={control}
         />
 
