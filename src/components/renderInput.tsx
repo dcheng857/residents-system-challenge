@@ -261,15 +261,11 @@ export const RenderTagsInput = ({
   control: any;
 }) => (
   <Controller
-    render={({ field, fieldState: { error } }) => (
+    render={({ field: { ref, ...field }, fieldState: { error } }) => (
       <>
         <div className="-space-y-px rounded-md shadow-sm w-full">
           <label htmlFor={name}>{label}</label>
           <TagsInput
-            // id={name}
-            // type={type}
-            // classNames="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-            // placeholder={placeholder}
             classNames={{
               input:
                 "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm",
