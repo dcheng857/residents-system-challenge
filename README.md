@@ -26,6 +26,18 @@ Run [Jest](https://jestjs.io/).
 
 ---
 
+## Usage
+
+Add your application configuration to your `.env` file in the root of your project:
+
+```shell
+REACT_APP_API_URL=[YOUR API URL]
+```
+
+You can reference the .env.sample file.
+
+---
+
 ## Stack
 
 - [Redux Toolkit](https://redux-toolkit.js.org/)
