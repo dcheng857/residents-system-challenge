@@ -14,6 +14,7 @@ import {
   IResident,
   useGetResidentsQuery,
 } from "../../app/services/residents";
+import { Badge } from "../../components/Badge";
 import { Button } from "../../components/Button";
 import { AttendToProgram } from "./AttendToProgram";
 import { openAttendProgram, setSelectedResident } from "./residentSlice";
@@ -57,6 +58,7 @@ export function Residents() {
       {
         accessorKey: "status",
         header: "Status",
+        accessorFn: (row) => <Badge type="info">{row.status}</Badge>,
       },
       {
         accessorKey: "room",
